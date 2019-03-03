@@ -1,2 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+  }
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute !important;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tbody tr.mat-row {
+    border: 1px solid #ccc;
+    height: 100%;
+  }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee !important; 
+		position: relative;
+    padding-left: 50% !important;
+    padding-top: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 10px !important;
+
+	}
+	
+	td:before {
+    color: rgba(0,0,0,.54);
+		position: absolute;
+		left: 10px;
+    content: attr(data-label);
+	}
+
+}
+
